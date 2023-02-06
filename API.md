@@ -13808,6 +13808,7 @@ const eC2MetricFactoryProps: EC2MetricFactoryProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.instanceFamilyType">instanceFamilyType</a></code> | <code><a href="#cdk-monitoring-constructs.InstanceFamilyTypes">InstanceFamilyTypes</a></code> | Tells wether the instances are nitro-based. If yes, then uses the metrics with the EBS prefix. |
 | <code><a href="#cdk-monitoring-constructs.EC2MetricFactoryProps.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 
 ---
@@ -13822,6 +13823,22 @@ public readonly autoScalingGroup: IAutoScalingGroup;
 - *Default:* no Auto-Scaling Group filter
 
 Auto-Scaling Group to monitor.
+
+---
+
+##### `instanceFamilyType`<sup>Optional</sup> <a name="instanceFamilyType" id="cdk-monitoring-constructs.EC2MetricFactoryProps.property.instanceFamilyType"></a>
+
+```typescript
+public readonly instanceFamilyType: InstanceFamilyTypes;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.InstanceFamilyTypes">InstanceFamilyTypes</a>
+- *Default:* InstanceFamilyTypes.CLASSIC
+
+Tells wether the instances are nitro-based. If yes, then uses the metrics with the EBS prefix.
+
+The list of instance types that are based on the Nitro System can be found in
+https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances
 
 ---
 
@@ -13853,6 +13870,7 @@ const eC2MonitoringOptions: EC2MonitoringOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.instanceFamilyType">instanceFamilyType</a></code> | <code><a href="#cdk-monitoring-constructs.InstanceFamilyTypes">InstanceFamilyTypes</a></code> | Tells wether the instances are nitro-based. If yes, then uses the metrics with the EBS prefix. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringOptions.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -13874,6 +13892,22 @@ public readonly autoScalingGroup: IAutoScalingGroup;
 - *Default:* no Auto-Scaling Group filter
 
 Auto-Scaling Group to monitor.
+
+---
+
+##### `instanceFamilyType`<sup>Optional</sup> <a name="instanceFamilyType" id="cdk-monitoring-constructs.EC2MonitoringOptions.property.instanceFamilyType"></a>
+
+```typescript
+public readonly instanceFamilyType: InstanceFamilyTypes;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.InstanceFamilyTypes">InstanceFamilyTypes</a>
+- *Default:* InstanceFamilyTypes.CLASSIC
+
+Tells wether the instances are nitro-based. If yes, then uses the metrics with the EBS prefix.
+
+The list of instance types that are based on the Nitro System can be found in
+https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances
 
 ---
 
@@ -14003,6 +14037,7 @@ const eC2MonitoringProps: EC2MonitoringProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.autoScalingGroup">autoScalingGroup</a></code> | <code>aws-cdk-lib.aws_autoscaling.IAutoScalingGroup</code> | Auto-Scaling Group to monitor. |
+| <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.instanceFamilyType">instanceFamilyType</a></code> | <code><a href="#cdk-monitoring-constructs.InstanceFamilyTypes">InstanceFamilyTypes</a></code> | Tells wether the instances are nitro-based. If yes, then uses the metrics with the EBS prefix. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | Selected IDs of EC2 instances to monitor. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.alarmFriendlyName">alarmFriendlyName</a></code> | <code>string</code> | Plain name, used in naming alarms. |
 | <code><a href="#cdk-monitoring-constructs.EC2MonitoringProps.property.humanReadableName">humanReadableName</a></code> | <code>string</code> | Human-readable name is a freeform string, used as a caption or description. |
@@ -14024,6 +14059,22 @@ public readonly autoScalingGroup: IAutoScalingGroup;
 - *Default:* no Auto-Scaling Group filter
 
 Auto-Scaling Group to monitor.
+
+---
+
+##### `instanceFamilyType`<sup>Optional</sup> <a name="instanceFamilyType" id="cdk-monitoring-constructs.EC2MonitoringProps.property.instanceFamilyType"></a>
+
+```typescript
+public readonly instanceFamilyType: InstanceFamilyTypes;
+```
+
+- *Type:* <a href="#cdk-monitoring-constructs.InstanceFamilyTypes">InstanceFamilyTypes</a>
+- *Default:* InstanceFamilyTypes.CLASSIC
+
+Tells wether the instances are nitro-based. If yes, then uses the metrics with the EBS prefix.
+
+The list of instance types that are based on the Nitro System can be found in
+https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances
 
 ---
 
@@ -61175,6 +61226,35 @@ create a two sets of dashboards: standard set (interactive) and a copy (bitmap).
 
 
 ##### `SMALL` <a name="SMALL" id="cdk-monitoring-constructs.HeaderLevel.SMALL"></a>
+
+---
+
+
+### InstanceFamilyTypes <a name="InstanceFamilyTypes" id="cdk-monitoring-constructs.InstanceFamilyTypes"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-monitoring-constructs.InstanceFamilyTypes.MIXED">MIXED</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.InstanceFamilyTypes.CLASSIC">CLASSIC</a></code> | *No description.* |
+| <code><a href="#cdk-monitoring-constructs.InstanceFamilyTypes.NITRO">NITRO</a></code> | The list of instance types that are based on the Nitro System can be found in https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances. |
+
+---
+
+##### `MIXED` <a name="MIXED" id="cdk-monitoring-constructs.InstanceFamilyTypes.MIXED"></a>
+
+---
+
+
+##### `CLASSIC` <a name="CLASSIC" id="cdk-monitoring-constructs.InstanceFamilyTypes.CLASSIC"></a>
+
+---
+
+
+##### `NITRO` <a name="NITRO" id="cdk-monitoring-constructs.InstanceFamilyTypes.NITRO"></a>
+
+The list of instance types that are based on the Nitro System can be found in https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances.
 
 ---
 

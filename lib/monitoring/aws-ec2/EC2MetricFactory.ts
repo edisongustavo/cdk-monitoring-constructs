@@ -161,7 +161,7 @@ export class EC2MetricFactory {
    * This can be used to determine the speed of the application.
    */
   metricAverageDiskReadBytes() {
-    return this.createMetrics("DiskReadBytes", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("DiskReadBytes", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -170,21 +170,21 @@ export class EC2MetricFactory {
    * This can be used to determine the speed of the application.
    */
   metricAverageDiskWriteBytes() {
-    return this.createMetrics("DiskWriteBytes", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("DiskWriteBytes", MetricStatistic.AVERAGE);
   }
 
   /**
    * Completed read operations from all instance store volumes available to the instance in a specified period of time.
    */
   metricAverageDiskReadOps() {
-    return this.createMetrics("DiskReadOps", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("DiskReadOps", MetricStatistic.AVERAGE);
   }
 
   /**
    * Completed write operations to all instance store volumes available to the instance in a specified period of time.
    */
   metricAverageDiskWriteOps() {
-    return this.createMetrics("DiskWriteOps", MetricStatistic.AVERAGE);
+    return this.createDiskMetrics("DiskWriteOps", MetricStatistic.AVERAGE);
   }
 
   /**
@@ -202,6 +202,24 @@ export class EC2MetricFactory {
   metricAverageNetworkOutRateBytes() {
     return this.createMetrics("NetworkOut", MetricStatistic.AVERAGE);
   }
+
+  private createDiskMetrics(metricName: string, statistic: MetricStatistic) {
+    const classicMetrics = this.strategy.createMetrics(this.metricFactory, metricName, statistic);
+    const ebsMetrics = this.strategy.createMetrics(this.metricFactory, `EBS${metricName}`, statistic);
+
+    return classicMetrics.map((classic, i) => {
+      const ebs = ebsMetrics[i];
+      const usingMetrics: Record<string, IMetric> = {};
+      usingMetrics[`classic${i}`] = classic;
+      usingMetrics[`ebs${i}`] = ebs;
+      return this.metricFactory.createMetricMath(
+        `AVG(REMOVE_EMPTY([classic${i}, ebs${i}]))`,
+        usingMetrics,
+        metricName,
+      );
+    });
+  }
+
 
   private createMetrics(metricName: string, statistic: MetricStatistic) {
     return this.strategy.createMetrics(
